@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container text-center py-5" style="min-height: 80vh;">
+        <div class="row align-items-center h-100">
+            <div class="col-12 pt-5">
+                <h1 class="display-1 text-primary pt-5 mt-5">404</h1>
+                <h2 class="display-4 text-secondary">Data Not Found</h2>
+                <p class="lead">The strategic insight you were looking for seems to be missing from the server.</p>
+                <p>Don't worry, even the best data scientists encounter anomalies.</p>
+                <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg mt-3">Return to DaTock Homepage</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
