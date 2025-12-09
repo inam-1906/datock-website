@@ -56,7 +56,7 @@ a {
 .container {
     max-width: 1280px; /* Slightly wider container */
     margin: 0 auto;
-    padding: 0 25px; /* Slightly more padding */
+    padding: 0 10px; /* Slightly more padding */
 }
 
 .section-padding {
@@ -605,8 +605,8 @@ a {
 
 .step-number {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     background: var(--dark-light);
     border: 3px solid var(--primary); /* Highlighted border */
     border-radius: 50%;
@@ -913,6 +913,8 @@ a {
 /* ===========================
    Responsive Design
    =========================== */
+/* Replace the mobile navigation section in your style.css (around line 1024) */
+
 @media (max-width: 1024px) {
     .navbar {
         width: 100%;
@@ -921,24 +923,41 @@ a {
         transform: translateX(0);
         border-radius: 0;
         padding: 15px 20px;
-        background: var(--dark-light); /* Less glass on mobile */
+        background: var(--dark-light);
         border: none;
+    }
+    
+    /* FIX: Align logo to the left in mobile view */
+    .nav-wrapper {
+        padding: 0; /* Remove any extra padding */
+    }
+    
+    .logo {
+        padding: 0;
+        margin-left: 0; /* Ensure logo sticks to left */
+    }
+    
+    .navbar-logo {
+        height: 40px; /* Slightly smaller logo for mobile */
     }
     
     .nav-menu {
         position: fixed;
-        top: 70px; /* Adjusted to new navbar height */
+        top: 70px;
         right: -100%;
+        left: auto; /* FIX: Prevents extending beyond viewport */
         width: 100%;
         max-width: 300px;
         height: calc(100vh - 70px);
         background: var(--dark-light); 
         backdrop-filter: blur(10px);
         flex-direction: column;
-        padding: 40px;
+        padding: 40px 20px; /* FIX: Reduced horizontal padding */
         gap: 30px;
         transition: right 0.4s ease-in-out;
         box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        overflow-y: auto; /* FIX: Allow scrolling if content is too tall */
+        overflow-x: hidden; /* FIX: Prevent horizontal overflow */
     }
     
     .nav-menu.active {
@@ -974,14 +993,14 @@ a {
     }
     
     .process-timeline::before {
-        left: 25px; /* Move timeline line to the left */
+        left: 25px;
         transform: translateX(0);
     }
     
     .process-step {
-        flex-direction: row !important; /* Forces all steps to align left */
+        flex-direction: row !important;
         text-align: left !important;
-        padding-left: 50px; /* Space for the line */
+        padding-left: 50px;
         gap: 20px;
     }
     
@@ -1005,7 +1024,6 @@ a {
         gap: 50px;
     }
 }
-
 @media (max-width: 640px) {
     .section-padding {
         padding: 80px 0;
